@@ -39,10 +39,10 @@ export function ToolCard({ tool }: ToolCardProps) {
       title={tool.description || tool.name}
       className="
         flex flex-col items-center justify-center
-        w-36 h-36 md:w-40 md:h-40 p-4 md:p-6
+        w-48 h-36 md:w-72 md:h-48 p-5 md:p-6
         bg-[var(--bg-card)]
         border-2 border-[var(--border-default)]
-        rounded
+        rounded-xl
         hover:border-[var(--accent-orange)]
         hover:bg-[var(--bg-card-hover)]
         transition-colors duration-200
@@ -52,12 +52,12 @@ export function ToolCard({ tool }: ToolCardProps) {
     >
       {imageError ? (
         <div className="
-          w-16 h-16 md:w-20 md:h-20
+          w-14 h-14 md:w-16 md:h-16
           flex items-center justify-center
           bg-[var(--border-default)] rounded-lg
         ">
           <span className="
-            text-3xl md:text-4xl font-bold
+            text-2xl md:text-3xl font-bold
             text-[var(--accent-orange)]
           ">
             {tool.name.charAt(0)}
@@ -68,7 +68,7 @@ export function ToolCard({ tool }: ToolCardProps) {
           src={`/logos/${tool.logo}`}
           alt={`${tool.name} logo`}
           onError={() => setImageError(true)}
-          className="w-16 h-16 md:w-20 md:h-20 object-contain"
+          className="w-14 h-14 md:w-16 md:h-16 object-contain"
         />
       )}
       <span className="

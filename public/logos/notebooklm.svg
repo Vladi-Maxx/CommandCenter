@@ -1,15 +1,1 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="notebookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#EA4335"/>
-      <stop offset="50%" style="stop-color:#FBBC05"/>
-      <stop offset="100%" style="stop-color:#34A853"/>
-    </linearGradient>
-  </defs>
-  <circle cx="50" cy="50" r="45" fill="url(#notebookGrad)"/>
-  <rect x="32" y="25" width="36" height="50" rx="3" fill="white"/>
-  <line x1="38" y1="35" x2="62" y2="35" stroke="#333" stroke-width="2"/>
-  <line x1="38" y1="45" x2="58" y2="45" stroke="#333" stroke-width="2"/>
-  <line x1="38" y1="55" x2="55" y2="55" stroke="#333" stroke-width="2"/>
-  <line x1="38" y1="65" x2="52" y2="65" stroke="#333" stroke-width="2"/>
-</svg>
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NotebookLM</title><defs><linearGradient id="notebookGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9334E9"/><stop offset="50%" style="stop-color:#E879A9"/><stop offset="100%" style="stop-color:#F9A825"/></linearGradient></defs><path fill="url(#notebookGradient)" d="M11.999 3.201C5.372 3.201 0 8.528 0 15.101V20.8h2.212v-.568c0-2.666 2.178-4.827 4.866-4.827 2.688 0 4.866 2.16 4.866 4.827v.568h2.212v-.568c0-3.877-3.17-7.019-7.078-7.019A7.075 7.075 0 0 0 2.992 14.5a7.355 7.355 0 0 1 6.568-4.016c4.057 0 7.347 3.264 7.347 7.287V20.8h2.212V17.77c0-5.235-4.28-9.481-9.56-9.481a9.563 9.563 0 0 0-6.217 2.28A9.795 9.795 0 0 1 12 5.393c5.406 0 9.788 4.346 9.788 9.707V20.8H24V15.1c-.001-6.573-5.373-11.9-12.001-11.9Z"/></svg>

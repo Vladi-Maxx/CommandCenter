@@ -3,15 +3,15 @@ export function PlaceholderCard() {
     <div
       className="
         flex flex-col items-center justify-center
-        w-36 h-36 md:w-40 md:h-40 p-4 md:p-6
+        w-48 h-36 md:w-72 md:h-48 p-5 md:p-6
         bg-[var(--bg-card)]
         border-2 border-dashed border-[var(--border-default)]
-        rounded
+        rounded-xl
         opacity-40
       "
     >
       <div className="
-        w-16 h-16 md:w-20 md:h-20
+        w-14 h-14 md:w-16 md:h-16
         flex items-center justify-center
         border-2 border-dashed border-[var(--border-default)]
         rounded-lg
