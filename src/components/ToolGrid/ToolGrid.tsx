@@ -63,7 +63,7 @@ export function ToolGrid({ tools, placeholderCount = 0, tabId }: ToolGridProps) 
 
         {showPlaceholders &&
           Array.from({ length: placeholderCount }).map((_, index) => (
-            <motion.div key={`placeholder-${index}`} variants={itemVariants}>
+            <motion.div key={`placeholder-${tabId}-${index}`} variants={itemVariants}>
               <PlaceholderCard />
             </motion.div>
           ))}

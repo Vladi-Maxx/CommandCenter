@@ -6,9 +6,16 @@ import { ClockWidget } from './components/ClockWidget/ClockWidget';
 import { tabs } from './data/tools';
 
 function App() {
+  if (tabs.length === 0) {
+    throw new Error('No tabs configured in tools.ts');
+  }
+
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
-  const currentTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+  const currentTab = tabs.find((tab) => tab.id === activeTab);
+  if (!currentTab) {
+    throw new Error(`Tab not found: ${activeTab}`);
+  }
 
   return (
     <Layout>
