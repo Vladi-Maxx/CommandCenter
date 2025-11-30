@@ -23,17 +23,20 @@ function App() {
 
       <header className="mb-8 md:mb-12">
         <h1 className="
-          font-[var(--font-mono)] text-2xl md:text-3xl font-bold
-          text-[var(--text-primary)]
-          uppercase tracking-[0.2em]
-          mb-2
+          hero-title
+          font-[var(--font-mono)]
+          text-4xl md:text-6xl lg:text-7xl
+          font-black
+          uppercase tracking-[0.3em] md:tracking-[0.5em]
+          mb-3
+          leading-none
         ">
           Command Center
         </h1>
         <p className="
-          font-[var(--font-mono)] text-xs
+          font-[var(--font-mono)] text-[10px] md:text-xs
           text-[var(--text-secondary)]
-          uppercase tracking-widest
+          uppercase tracking-[0.4em]
         ">
           AI Tools Dashboard
         </p>

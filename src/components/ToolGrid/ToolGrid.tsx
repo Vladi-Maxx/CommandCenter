@@ -14,7 +14,8 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
   exit: {
@@ -23,14 +24,24 @@ const containerVariants: Variants = {
   },
 };
 
-const easeOut: Easing = [0.4, 0, 0.2, 1];
+const easeOutSpring: Easing = [0.34, 1.56, 0.64, 1];
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.9,
+    rotate: -2,
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.3, ease: easeOut },
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOutSpring,
+    },
   },
 };
 

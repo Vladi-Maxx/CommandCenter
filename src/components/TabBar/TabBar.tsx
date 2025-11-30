@@ -54,11 +54,16 @@ export function TabBar({ tabs, activeTab, onTabChange }: TabBarProps) {
             {isActive && (
               <motion.div
                 layoutId="activeTabIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--accent-orange)]"
+                className="
+                  absolute bottom-0 left-0 right-0
+                  h-[4px] bg-[var(--accent-orange)]
+                  tab-glow
+                  rounded-full
+                "
                 transition={{
                   type: 'spring',
-                  stiffness: 500,
-                  damping: 30
+                  stiffness: 400,
+                  damping: 25
                 }}
               />
             )}

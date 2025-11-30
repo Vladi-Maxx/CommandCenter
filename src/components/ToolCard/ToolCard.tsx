@@ -6,7 +6,7 @@ interface ToolCardProps {
   tool: Tool;
 }
 
-const easeOut: Easing = [0.4, 0, 0.2, 1];
+const easeOutSpring: Easing = [0.34, 1.56, 0.64, 1];
 
 const cardVariants: Variants = {
   idle: {
@@ -14,13 +14,40 @@ const cardVariants: Variants = {
     boxShadow: '0 0 0 rgba(255, 107, 53, 0)',
   },
   hover: {
-    y: -4,
-    boxShadow: '0 8px 32px rgba(255, 107, 53, 0.15)',
-    transition: { duration: 0.2, ease: easeOut },
+    y: -8,
+    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.25)',
+    transition: { duration: 0.3, ease: easeOutSpring },
   },
   tap: {
-    scale: 0.98,
+    scale: 0.97,
+    y: -4,
     transition: { duration: 0.1 },
+  },
+};
+
+const iconVariants: Variants = {
+  idle: {
+    scale: 1,
+    rotate: 0,
+  },
+  hover: {
+    scale: 1.15,
+    rotate: 5,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 15,
+    },
+  },
+};
+
+const labelVariants: Variants = {
+  idle: {
+    letterSpacing: '0.05em',
+  },
+  hover: {
+    letterSpacing: '0.15em',
+    transition: { duration: 0.3 },
   },
 };
 
@@ -50,36 +77,44 @@ export function ToolCard({ tool }: ToolCardProps) {
         cursor-pointer
       "
     >
-      {imageError ? (
-        <div className="
-          w-14 h-14 md:w-16 md:h-16
-          flex items-center justify-center
-          bg-[var(--border-default)] rounded-lg
-        ">
-          <span className="
-            text-2xl md:text-3xl font-bold
-            text-[var(--accent-orange)]
+      <motion.div
+        variants={iconVariants}
+        className="flex items-center justify-center"
+      >
+        {imageError ? (
+          <div className="
+            w-14 h-14 md:w-16 md:h-16
+            flex items-center justify-center
+            bg-[var(--border-default)] rounded-lg
           ">
-            {tool.name.charAt(0)}
-          </span>
-        </div>
-      ) : (
-        <img
-          src={`/logos/${tool.logo}`}
-          alt={`${tool.name} logo`}
-          onError={() => setImageError(true)}
-          className="w-14 h-14 md:w-16 md:h-16 object-contain"
-        />
-      )}
-      <span className="
-        mt-2 md:mt-3
-        font-[var(--font-mono)] text-xs md:text-sm
-        text-[var(--text-secondary)]
-        uppercase tracking-wider
-        text-center
-      ">
+            <span className="
+              text-2xl md:text-3xl font-bold
+              text-[var(--accent-orange)]
+            ">
+              {tool.name.charAt(0)}
+            </span>
+          </div>
+        ) : (
+          <img
+            src={`/logos/${tool.logo}`}
+            alt={`${tool.name} logo`}
+            onError={() => setImageError(true)}
+            className="w-14 h-14 md:w-16 md:h-16 object-contain"
+          />
+        )}
+      </motion.div>
+      <motion.span
+        variants={labelVariants}
+        className="
+          mt-2 md:mt-3
+          font-[var(--font-mono)] text-xs md:text-sm
+          text-[var(--text-secondary)]
+          uppercase
+          text-center
+        "
+      >
         {tool.name}
-      </span>
+      </motion.span>
     </motion.a>
   );
 }
