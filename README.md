@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Command Center
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal AI tools dashboard with brutalist industrial design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **6 AI Chatbots**: Claude, ChatGPT, Gemini, Grok, AI Studio, NotebookLM
+- **Tab Navigation**: Animated tab indicator with keyboard support
+- **Hover Animations**: Card lift effect with orange glow
+- **Clock Widget**: Bulgarian time format (24h, DD.MM.YYYY)
+- **Responsive Grid**: 2 columns on mobile, 3 on desktop
+- **Dark Mode Only**: Brutalist industrial aesthetic
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Vite 7
+- Tailwind CSS v4
+- Motion (Framer Motion v12)
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Adding New Tools
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Edit `src/data/tools.ts`:
+
+```typescript
+// Add to the tools array in the appropriate tab
+{
+  id: 'newtool',
+  name: 'New Tool',
+  url: 'https://example.com',
+  logo: 'newtool.svg',
+  description: 'Optional tooltip text'
+}
 ```
+
+Place the SVG logo in `public/logos/`.
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ClockWidget/    # Live clock with Bulgarian locale
+│   ├── Layout/         # Base layout with CSS variables
+│   ├── PlaceholderCard/# Empty state card
+│   ├── TabBar/         # Tab navigation
+│   ├── ToolCard/       # Individual tool card
+│   └── ToolGrid/       # Responsive grid with animations
+├── data/
+│   └── tools.ts        # Tool and tab configuration
+└── App.tsx             # Main app component
+```
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## Design Tokens
+
+CSS variables in `src/index.css`:
+
+```css
+--bg-primary: #0a0a0a      /* Main background */
+--bg-card: #141414         /* Card background */
+--accent-orange: #FF6B35   /* Primary accent */
+--accent-cyan: #00D9FF     /* Secondary accent */
+--text-primary: #E8E6E3    /* Main text */
+--text-secondary: #6B6B6B  /* Muted text */
+```
+
+## License
+
+MIT
